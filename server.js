@@ -9,7 +9,7 @@ const db = require('./config/keys').MongoURI;
 const passportConfig = require('./config/passport')(passport);
 
 const indexRouter = require('./routes/index');
-const UserRouter = require('./routes/users');
+const userRouter = require('./routes/users');
 
 const app = express();
 
@@ -38,6 +38,6 @@ app.use((req, res, next) => {
 });
 
 app.use('/', indexRouter);
-app.use('/users', UserRouter);
+app.use('/users', userRouter);
 
 app.listen(3001, console.log('Server has opened on port 3001'));
