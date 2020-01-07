@@ -6,11 +6,21 @@ const passport = require('passport');
 const User = require('../models/User');
 
 router.get('/login', (req, res) => {
-    res.render('login');
+    if(req.isAuthenticated()) {
+        res.redirect('/');
+    }
+    else {
+        res.render('login');
+    }
 });
 
 router.get('/register', (req, res) => {
-    res.render('register');
+    if(req.isAuthenticated()) {
+        res.redirect('/');
+    }
+    else {
+        res.render('register');
+    }
 });
 
 router.post('/register', (req, res) => {
