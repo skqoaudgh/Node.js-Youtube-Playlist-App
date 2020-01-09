@@ -10,13 +10,9 @@
     <iframe 
         width="560" 
         height="315" 
-        src="https://www.youtube.com/embed/<%= playlist[0].id %>"
+        src="https://www.youtube.com/embed/<%= playlist[0].id %>?autoplay=1"
         frameborder="0" 
-        allow="accelerometer; 
-        autoplay; 
-        encrypted-media; 
-        gyroscope; 
-        picture-in-picture" 
+        allow="accelerometer; autoplay; mute; encrypted-media; gyroscope; picture-in-picture"
         allowfullscreen>
     </iframe>
 </div>
@@ -52,15 +48,12 @@
         const id = article.getAttribute('data-key');
         video.innerHTML = `
             <iframe 
+                allow=""
                 width="560" 
                 height="315" 
-                src="https://www.youtube.com/embed/${id}"
+                src="https://www.youtube.com/embed/${id}?autoplay=1"
                 frameborder="0" 
-                allow="accelerometer; 
-                autoplay; 
-                encrypted-media; 
-                gyroscope; 
-                picture-in-picture" 
+                allow="accelerometer; autoplay; mute; encrypted-media; gyroscope; picture-in-picture"
                 allowfullscreen>
             </iframe>
         `;
