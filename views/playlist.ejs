@@ -26,15 +26,43 @@
 <% } else { %>
     <div id="itemContainer">
         <% for(let i=0; i<playlist.length; i++) { %>
-            <div id="item">
-                <div id="item-left">
-                    <img src="<%= playlist[i].thumbnail %>" alt="">
+            <article class="item" data-key="<%= playlist[i].id %>">
+                <img class="item-left" src="<%= playlist[i].thumbnail %>" alt="">
+                <div class="item-right">
+                    <h5 class="channelTitle"><%= playlist[i].channelTitle %></h5>
+                    <p class="videoTitle"><%= playlist[i].title %></p>
                 </div>
-                <div id="item-right">
-                    <h5 id="channelTitle"><%= playlist[i].channelTitle %></h5>
-                    <p id="videoTitle"><%= playlist[i].title %></p>
-                </div>
-            </div>
+            </article>
         <% } %>
     </div>
 <% } %>
+
+<script>
+    const list = document.getElementById('itemContainer');
+    const video = document.getElementById('video');
+    list.addEventListener('click', function(e) {
+        let article = e.target;
+        if(e.target.tagName == 'IMG' || e.target.tagName == 'DIV') {
+            article = e.target.parentNode;
+        }
+        else if(e.target.tagName == 'H5' || e.target.tagName == 'P') {
+            article = e.target.parentNode.parentNode;
+        }
+
+        const id = article.getAttribute('data-key');
+        video.innerHTML = `
+            <iframe 
+                width="560" 
+                height="315" 
+                src="https://www.youtube.com/embed/${id}"
+                frameborder="0" 
+                allow="accelerometer; 
+                autoplay; 
+                encrypted-media; 
+                gyroscope; 
+                picture-in-picture" 
+                allowfullscreen>
+            </iframe>
+        `;
+    });
+</script>
