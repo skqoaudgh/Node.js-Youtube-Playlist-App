@@ -17,18 +17,22 @@ router.get('/', (req, res) => {
 });
 
 router.get('/playlist', ensureAuthenticated, (req, res) => {
-    const playlist = [];
-
     User.findOne({email: req.user.email})
         .then(user => {
-            
+            const playlist = user.item;
+            Item.find({_id: { $in: playlist }})
+                .then(item => {
+                    res.render('playlist', { playlist: item });
+                })
+                .catch(err => {
+                    console.error(err);
+                    res.redirect('/')
+                })
         })
         .catch(err => {
             console.error(err);
             res.redirect('/')
         });
-
-    res.render('playlist', { playlist });
 });
 
 router.post('/playlist', ensureAuthenticated, (req, res) => {

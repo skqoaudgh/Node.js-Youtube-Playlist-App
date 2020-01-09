@@ -9,6 +9,18 @@
 <h1 class="mt-4" id="title">My Playlist</h1>
 <% if(playlist.length == 0) {%>
     <p id="emptyContainer">No playlists to display</p>
+<% } else { %>
+    <div id="itemContainer">
+        <% for(let i=0; i<playlist.length; i++) { %>
+            <div id="item">
+                <div id="item-left">
+                    <img src="<%= playlist[i].thumbnail %>" alt="">
+                </div>
+                <div id="item-right">
+                    <h5 id="channelTitle"><%= playlist[i].channelTitle %></h5>
+                    <p id="videoTitle"><%= playlist[i].title %></p>
+                </div>
+            </div>
+        <% } %>
+    </div>
 <% } %>
-<div id="itemContainer">
-</div>

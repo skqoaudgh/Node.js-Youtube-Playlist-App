@@ -25,12 +25,10 @@
         }
         #title {
             margin-left: 13%;
-            margin-bottom: 1rem;
             color: rgb(255, 126, 126);
             text-transform: uppercase;
         }
         #itemContainer {
-            width: 50%;
             text-align: center;
             margin: auto;
         }
@@ -58,6 +56,27 @@
             width: 73%;
             margin: 5rem auto;
             margin-bottom: 0;
+        }
+        #item {
+            display: flex;
+            width: 70%;
+            margin: auto;
+            padding: 1rem;
+            border: solid 2px rgba(0,0,0,0);
+        }
+        #item:hover {
+            border: solid 2px rgb(255, 126, 126);
+            border-radius: 10px;
+            cursor: pointer;
+        }
+        #item-left {
+            margin-right: 1rem;
+        }
+        #channelTitle {
+            text-align: left;
+        }
+        #videoTitle {
+            color: rgb(97, 97, 97);
         }
     </style>
     <title>Youtube Playlist App</title>
