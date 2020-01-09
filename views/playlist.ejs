@@ -6,6 +6,20 @@
     <button type="submit" class="btn btn-primary" id="add">Add</button>
     <a href="/users/logout" class="btn btn-secondary" id="logout">Logout</a>
 </form>
+<div id="video">
+    <iframe 
+        width="560" 
+        height="315" 
+        src="https://www.youtube.com/embed/<%= playlist[0].id %>"
+        frameborder="0" 
+        allow="accelerometer; 
+        autoplay; 
+        encrypted-media; 
+        gyroscope; 
+        picture-in-picture" 
+        allowfullscreen>
+    </iframe>
+</div>
 <h1 class="mt-4" id="title">My Playlist</h1>
 <% if(playlist.length == 0) {%>
     <p id="emptyContainer">No playlists to display</p>
