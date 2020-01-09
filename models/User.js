@@ -15,8 +15,8 @@ const userSchema = new mongoose.Schema({
     },
     item: [
         {
-            type: String,
-            default: []
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'Item'
         }
     ],
     Date: {
